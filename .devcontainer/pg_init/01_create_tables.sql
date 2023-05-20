@@ -1,8 +1,21 @@
--- create table theme (
---     id int primary key,
---     name text not null,
---     parent_id int null references theme(id)
--- );
+create table Movie (
+    Poser_Link text not null,
+    Series_Title text not null,
+    Released_Year int not null,
+    Certificate text not null,
+    Runtime text not null,
+    Genre text not null,
+    IMDB_Rating text not null,
+    Overview text not null,
+    Meta_score text not null,
+    Director text not null,
+    Star1 text not null,
+    Star2 text not null,
+    Star3 text not null,
+    Star4 text not null,
+    No_of_Votes int not null,
+    Gross int not null
+);
 
 -- create table set (
 --     set_num text primary key,

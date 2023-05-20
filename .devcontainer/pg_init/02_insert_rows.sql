@@ -1,7 +1,9 @@
--- copy theme(id, name, parent_id)
--- from '/docker-entrypoint-initdb.d/seed_data/themes.csv'
--- delimiter ','
--- csv header;
+copy Movie(Poster_Link,Series_Title,Released_Year,Certificate,
+           Runtime,Genre,IMDB_Rating,Overview,Meta_score,Director,
+           Star1,Star2,Star3,Star4,No_of_Votes,Gross)
+from '/docker-entrypoint-initdb.d/seed_data/imdb_top_1000.csv'
+delimiter ','
+csv header;
 
 -- copy set(set_num, name, year, theme_id, num_parts)
 -- from '/docker-entrypoint-initdb.d/seed_data/sets.csv'
