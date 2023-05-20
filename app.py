@@ -1,7 +1,6 @@
 import csv
 from flask import Flask, request, render_template
-import psycopg2, random
-
+import psycopg2
 from psycopg2.extras import RealDictCursor
 
 conn = psycopg2.connect(
@@ -13,6 +12,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return "Hello, World!"
+
 
 @app.route("/home")
 def render_sets():
@@ -33,8 +33,8 @@ def render_sets():
     No_of_Votes = request.args.get("No_of_Votes", "")
     Gross = request.args.get("Gross", "")
 
-    from_where_clause = f"""
-            from movie
+    from_where_clause = """
+        from movie
     """
 
     params = {
@@ -48,12 +48,12 @@ def render_sets():
         "Overview": f"%{Overview}%",
         "Meta_score": f"%{Meta_score}%",
         "Director": f"%{Director}%",
-        "Star1" : f"%{Star1}%",
-        "Star2" : f"%{Star2}%",
-        "Star3" : f"%{Star3}%",
-        "Star4" : f"%{Star4}%",
-        "No_of_Votes" : f"%{No_of_Votes}%",
-        "Gross" : f"%{Gross}%"
+        "Star1": f"%{Star1}%",
+        "Star2": f"%{Star2}%",
+        "Star3": f"%{Star3}%",
+        "Star4": f"%{Star4}%",
+        "No_of_Votes": f"%{No_of_Votes}%",
+        "Gross": f"%{Gross}%"
     }
-
- 
+    
+    return render_template("Home.html", params=request.args)
