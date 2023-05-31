@@ -13,8 +13,8 @@ create table Movie (
     Star2 text not null,
     Star3 text not null,
     Star4 text not null,
-    No_of_Votes int not null,
-    Gross int not null
+    No_of_Votes text not null,
+    Gross text not null
 );
 
 -- create table set (
