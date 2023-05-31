@@ -1,7 +1,7 @@
 create table Movie (
     Poser_Link text not null,
     Series_Title text not null,
-    Released_Year int not null,
+    Released_Year text not null,
     Certificate text not null,
     Runtime text not null,
     Genre text not null,
