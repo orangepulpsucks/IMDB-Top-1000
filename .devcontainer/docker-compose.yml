@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   app:
-    container_name: movie
+    container_name: app
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
@@ -30,22 +30,23 @@ services:
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
-    container_name: movies #match with app.py host=
+    container_name: db
     image: postgres:latest
     restart: unless-stopped
     volumes:
+      - ./.postgres_data:/var/lib/postgresql/data
       - ./pg_init:/docker-entrypoint-initdb.d
       - ./pg_init/seed_data:/var/data/seed_data
     environment:
-      POSTGRES_USER: movie
-      POSTGRES_DB: movie
-      POSTGRES_PASSWORD: movie
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
 
     # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   pgadmin:
-    container_name: letsgo
+    container_name: dbms
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
