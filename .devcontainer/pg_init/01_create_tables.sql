@@ -2,16 +2,15 @@
 --of SPACES
 
 --How to see updated db: 1.reopen folder locally, delete .postgres_data (DON'T delete before), refresh
---released_year -> int
--- imdb_rating -> float
+
+--Fix:
 -- meta_score -> int
--- no_of_votes -> int
 -- gross -> int
 
 create table Movie (
     Poster_Link text,
     Series_Title text,
-    Released_Year int not null, --NOT WORKING
+    Released_Year int not null, --WORKING
     Certificate text,
     Runtime int not null, --WORKING
     Genre text,
