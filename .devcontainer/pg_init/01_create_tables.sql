@@ -9,9 +9,9 @@
 create table Movie (
     Poster_Link text,
     Series_Title text,
-    Released_Year int,
+    Released_Year text,
     Certificate text,
-    Runtime int,
+    Runtime text,
     Genre text,
     IMDB_Rating text,
     Overview text,
