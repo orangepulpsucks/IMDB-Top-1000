@@ -1,6 +1,8 @@
---Note to self: empty values must be taken into account (make them null through data cleaning)
+--Note to self: EMPTY VALUES must be taken into account (make them NULL through data cleaning), get rid
+--of SPACES
+
+--How to see updated db: 1.reopen folder locally, delete .postgres_data (DON'T delete before), refresh
 --released_year -> int
---runtime -> int
 -- imdb_rating -> float
 -- meta_score -> int
 -- no_of_votes -> int
@@ -9,20 +11,20 @@
 create table Movie (
     Poster_Link text,
     Series_Title text,
-    Released_Year int not null,
+    Released_Year int not null, --NOT WORKING
     Certificate text,
-    Runtime int not null,
+    Runtime int not null, --WORKING
     Genre text,
-    IMDB_Rating float not null,
+    IMDB_Rating float not null, --WORKING
     Overview text,
-    Meta_score text,
+    Meta_score text, --NOT WORKING, has null values
     Director text,
     Star1 text,
     Star2 text,
     Star3 text,
     Star4 text,
-    No_of_Votes int not null,
-    Gross text
+    No_of_Votes int not null, --WORKING
+    Gross text --NOT WORKING, has null values
 );
 
 -- create table set (
