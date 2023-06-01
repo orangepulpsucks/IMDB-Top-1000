@@ -1,4 +1,11 @@
 --Note to self: empty values must be taken into account (make them null through data cleaning)
+--released_year -> int
+-- fix runtime to only have numbers
+-- imdb_rating -> float
+-- meta_score -> int
+-- no_of_votes -> int
+-- gross -> int
+
 create table Movie (
     Poster_Link text,
     Series_Title text,
