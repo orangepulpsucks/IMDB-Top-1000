@@ -1,6 +1,6 @@
 --Note to self: empty values must be taken into account (make them null through data cleaning)
 --released_year -> int
--- fix runtime to only have numbers
+--runtime -> int
 -- imdb_rating -> float
 -- meta_score -> int
 -- no_of_votes -> int
@@ -9,20 +9,20 @@
 create table Movie (
     Poster_Link text,
     Series_Title text,
-    Released_Year text,
+    Released_Year int,
     Certificate text,
-    Runtime text,
+    Runtime int,
     Genre text,
-    IMDB_Rating text,
+    IMDB_Rating float,
     Overview text,
-    Meta_score text,
+    Meta_score int,
     Director text,
     Star1 text,
     Star2 text,
     Star3 text,
     Star4 text,
-    No_of_Votes text,
-    Gross text
+    No_of_Votes int,
+    Gross int
 );
 
 -- create table set (
