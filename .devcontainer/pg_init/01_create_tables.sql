@@ -13,16 +13,16 @@ create table Movie (
     Certificate text,
     Runtime int,
     Genre text,
-    IMDB_Rating float,
+    IMDB_Rating text,
     Overview text,
-    Meta_score int,
+    Meta_score text,
     Director text,
     Star1 text,
     Star2 text,
     Star3 text,
     Star4 text,
-    No_of_Votes int,
-    Gross int
+    No_of_Votes text,
+    Gross text
 );
 
 -- create table set (
