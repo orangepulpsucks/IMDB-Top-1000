@@ -1,3 +1,4 @@
+--Note to self: empty values must be taken into account (make them null through data cleaning)
 create table Movie (
     Poster_Link text,
     Series_Title text,
