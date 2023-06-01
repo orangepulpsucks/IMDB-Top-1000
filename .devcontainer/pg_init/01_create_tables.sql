@@ -9,11 +9,11 @@
 create table Movie (
     Poster_Link text,
     Series_Title text,
-    Released_Year text,
+    Released_Year int not null,
     Certificate text,
-    Runtime text,
+    Runtime int not null,
     Genre text,
-    IMDB_Rating text,
+    IMDB_Rating float not null,
     Overview text,
     Meta_score text,
     Director text,
@@ -21,7 +21,7 @@ create table Movie (
     Star2 text,
     Star3 text,
     Star4 text,
-    No_of_Votes text,
+    No_of_Votes int not null,
     Gross text
 );
 
