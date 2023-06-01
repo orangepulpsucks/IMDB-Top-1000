@@ -1,8 +1,7 @@
 copy Movie(Poster_Link,Series_Title,Released_Year,Certificate,
            Runtime,Genre,IMDB_Rating,Overview,Meta_score,Director,
            Star1,Star2,Star3,Star4,No_of_Votes,Gross)
---from '/docker-entrypoint-initdb.d/seed_data/imdb_top_1000.csv'
-from '/workspace/.devcontainer/pg_init/seed_data/imdb_top_1000.csv'
+from '/docker-entrypoint-initdb.d/seed_data/imdb_top_1000.csv'
 delimiter ','
 csv header;
 
