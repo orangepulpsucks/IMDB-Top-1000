@@ -1,20 +1,20 @@
 create table Movie (
-    Poster_Link text not null,
-    Series_Title text not null,
-    Released_Year text not null,
-    Certificate text not null,
-    Runtime text not null,
-    Genre text not null,
-    IMDB_Rating text not null,
-    Overview text not null,
-    Meta_score text not null,
-    Director text not null,
-    Star1 text not null,
-    Star2 text not null,
-    Star3 text not null,
-    Star4 text not null,
-    No_of_Votes text not null,
-    Gross text not null
+    Poster_Link text,
+    Series_Title text,
+    Released_Year text,
+    Certificate text,
+    Runtime text,
+    Genre text,
+    IMDB_Rating text,
+    Overview text,
+    Meta_score text,
+    Director text,
+    Star1 text,
+    Star2 text,
+    Star3 text,
+    Star4 text,
+    No_of_Votes text,
+    Gross text
 );
 
 -- create table set (
