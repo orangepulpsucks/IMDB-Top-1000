@@ -18,53 +18,54 @@ def hello_world():
 
 @app.route("/home")
 def render_sets():
-    Poster_Link = request.args.get("Poster_Link", "")
-    Series_Title = request.args.get("Series_Title", "")
-    Released_Year = request.args.get("Released_Year", "")
-    Certificate = request.args.get("Certificate", "") 
-    Runtime = request.args.get("Runtime", "")
-    Genre = request.args.get("Genre", "")
-    IMDB_Rating = request.args.get('IMDB_Rating')
-    Overview = request.args.get("Overview", "")
-    Meta_score = request.args.get("Meta_score", "")
-    Director = request.args.get("Director", "")
-    Star1 = request.args.get("Star1", "")
-    Star2 = request.args.get("Star2", "")
-    Star3 = request.args.get("Star3", "")
-    Star4 = request.args.get("Star4", "")
-    No_of_Votes = request.args.get("No_of_Votes", "")
-    Gross = request.args.get("Gross", "")
-    sort_by = request.args.get("sort_by", "Series_Title")
+    poster_link = request.args.get("poster_link", "")
+    series_title = request.args.get("series_title", "")
+    released_year = request.args.get("released_year", "")
+    certificate = request.args.get("certificate", "") 
+    runtime = request.args.get("runtime", "")
+    genre = request.args.get("genre", "")
+    imdb_rating = request.args.get('imdb_rating')
+    overview = request.args.get("overview", "")
+    meta_score = request.args.get("meta_score", "")
+    director = request.args.get("director", "")
+    star1 = request.args.get("star1", "")
+    star2 = request.args.get("star2", "")
+    star3 = request.args.get("star3", "")
+    star4 = request.args.get("star4", "")
+    no_of_votes = request.args.get("no_of_votes", "")
+    gross = request.args.get("gross", "")
+
+    sort_by = request.args.get("sort_by", "series_title")
     sort_dir = request.args.get("sort_dir", "asc")
-    limit = request.args.get("limit", 100, type=int)
+    limit = request.args.get("limit", 10, type=int)
 
     from_where_clause = """
         from movie
-        where %(Series_Title)s is null or series_title name ilike %(Series_Title)s
-        and ( %(Released_Year)s is null or released_year = %(Released_Year)s )
-        and ( %(Runtime)s is null or runtime = %(Runtime)s )
-        and ( %(Genre)s is null or genre ilike %(Genre)s )
-        and ( %(IMDB_Rating)s is null or imdb_rating = %(IMDB_Rating)s )
-        and ( %(Director)s is null or director ilike %(Director)s )
+        where %(series_title)s is null or series_title name ilike %(series_title)s
+        and ( %(released_year)s is null or released_year = %(released_year)s )
+        and ( %(runtime)s is null or runtime = %(runtime)s )
+        and ( %(genre)s is null or genre ilike %(genre)s )
+        and ( %(imdb_rating)s is null or imdb_rating = %(imdb_rating)s )
+        and ( %(director)s is null or director ilike %(director)s )
     """
 
     params = {
-        "Poster_Link": f"%{Poster_Link}%",
-        "Series_Title": f"%{Series_Title}%",
-        "Released_Year": int(Released_Year) if Released_Year else None,
-        "Certificate": f"%{Certificate}%",
-        "Runtime": f"%{Runtime}%",
-        "Genre": f"%{Genre}%",
-        "IMDB_Rating": float(IMDB_Rating) if IMDB_Rating else None,
-        "Overview": f"%{Overview}%",
-        "Meta_score": f"%{Meta_score}%",
-        "Director": f"%{Director}%",
-        "Star1": f"%{Star1}%",
-        "Star2": f"%{Star2}%",
-        "Star3": f"%{Star3}%",
-        "Star4": f"%{Star4}%",
-        "No_of_Votes": f"%{No_of_Votes}%",
-        "Gross": f"%{Gross}%",
+        "poster_link": f"%{poster_link}%",
+        "series_title": f"%{series_title}%",
+        "released_year": int(released_year) if released_year else None,
+        "certificate": f"%{certificate}%",
+        "runtime": f"%{runtime}%",
+        "genre": f"%{genre}%",
+        "imdb_rating": float(imdb_rating) if imdb_rating else None,
+        "overview": f"%{overview}%",
+        "meta_score": f"%{meta_score}%",
+        "Director": f"%{director}%",
+        "star1": f"%{star1}%",
+        "star2": f"%{star2}%",
+        "star3": f"%{star3}%",
+        "star4": f"%{star4}%",
+        "no_of_votes": f"%{no_of_votes}%",
+        "gross": f"%{gross}%",
 
         "sort_by": sort_by,
         "sort_dir" : sort_dir,
