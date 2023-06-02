@@ -3,9 +3,6 @@
 
 --How to see updated db: 1.reopen folder locally, delete .postgres_data (DON'T delete before), refresh
 
---Fix:
--- meta_score -> int
--- gross -> int
 
 create table Movie (
     Poster_Link text,
@@ -16,14 +13,14 @@ create table Movie (
     Genre text,
     IMDB_Rating float not null, --WORKING
     Overview text,
-    Meta_score text, --NOT WORKING, has null values
+    Meta_score text, --NOT WORKING, has null values, DON'T NEED
     Director text,
     Star1 text,
     Star2 text,
     Star3 text,
     Star4 text,
     No_of_Votes int not null, --WORKING
-    Gross text --NOT WORKING, has null values
+    Gross text --NOT WORKING, has null values, DON'T NEEd
 );
 
 -- create table set (
