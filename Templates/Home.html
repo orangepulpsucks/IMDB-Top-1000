@@ -1,3 +1,11 @@
+<div style="text-align: center;">
+    <title>IMDB Top 1000</title>
+    <h1>IMDB Top 1000</h1>
+</div>
+
+{% if result_count > 0 %}
+   <div style="text-align: center;"><h1>{{result_count}} results</h1></div>
+
 <th>
     <a href="/home?series_title={{params['series_title']}}&released_year={{params['released_year']}}&runtime={{params['runtime']}}&genre={{params['genre']}}&imdb_rating={{params['imdb_rating']}}&director={{params['director']}}&sort_by=series_title&sort_dir={{get_sort_dir('series_title')}}">Series_Title</a>
     {% if params['sort_by'] == 'series_title' %}
@@ -7,29 +15,25 @@
 {% endif %}
 {% endif %}
 
-<!-- params = {
-    "poster_link": f"%{poster_link}%",
-    "series_title": f"%{series_title}%",
-    "released_year": int(released_year) if released_year and released_year.isdigit() else 0
-    if released_year and not released_year.isdigit() else None,
-    "certificate": f"%{certificate}%",
-    "runtime": int(runtime) if runtime and runtime.isdigit() else 0
-    if runtime and not runtime.isdigit() else None,
-    "genre": f"%{genre}%",
-    "imdb_rating": float(imdb_rating) if imdb_rating and imdb_rating.replace('.', '').isdigit() else 0
-    if imdb_rating and not imdb_rating.isdigit() else None,
-    "overview": f"%{overview}%",
-    "meta_score": f"%{meta_score}%",
-    "Director": f"%{director}%",
-    "star1": f"%{star1}%",
-    "star2": f"%{star2}%",
-    "star3": f"%{star3}%",
-    "star4": f"%{star4}%",
-    "no_of_votes": int(no_of_votes) if no_of_votes and no_of_votes.isdigit() else 0
-    if no_of_votes and not no_of_votes.isdigit() else None,
-    "gross": f"%{gross}%",
+<body>
+    <p></p>
+    <div style="text-align: center;">
+    <form action="home" method="get">
+      <span>Series_Title:</span>
+        <input type="text" name=series_title value="{{params['series_title']}}">
+      <span>Released_Year:</span>
+        <input type="text" name=released_year value="{{params['released_year']}}">
+      <span>Runtime:</span>
+        <input type="text" name=runtime value="{{params['runtime']}}">
+      <span>Genre:</span>
+        <input type="text" name=genre value="{{params['genre']}}">
+      <span>IMDB_Rating:</span>
+        <input type="text" name=imdb_rating value="{{params['imdb_rating']}}">
+      <span>Director:</span>
+        <input type="text" name=director value="{{params['director']}}">
+      <button type="submit">Search</button>
+    </form>
+    </div>
 
-    "sort_by": sort_by,
-    "sort_dir" : sort_dir,
-    "limit" : limit
-} -->
+
+  
