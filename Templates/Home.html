@@ -5,6 +5,7 @@
 
 {% if result_count > 0 %}
    <div style="text-align: center;"><h1>{{result_count}} results</h1></div>
+   {% endif %}
 
 <th>
     <a href="/home?series_title={{params['series_title']}}&released_year={{params['released_year']}}&runtime={{params['runtime']}}&genre={{params['genre']}}&imdb_rating={{params['imdb_rating']}}&director={{params['director']}}&sort_by=series_title&sort_dir={{get_sort_dir('series_title')}}">Series_Title</a>
