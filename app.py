@@ -41,7 +41,7 @@ def render_sets():
 
     from_where_clause = """
         from movie
-        where %(series_title)s is null or series_title name ilike %(series_title)s
+        where %(series_title)s is null or series_title ilike %(series_title)s
         and ( %(released_year)s is null or released_year = %(released_year)s )
         and ( %(runtime)s is null or runtime = %(runtime)s )
         and ( %(genre)s is null or genre ilike %(genre)s )
@@ -62,7 +62,7 @@ def render_sets():
         if imdb_rating and not imdb_rating.isdigit() else None,
         "overview": f"%{overview}%",
         "meta_score": f"%{meta_score}%",
-        "Director": f"%{director}%",
+        "director": f"%{director}%",
         "star1": f"%{star1}%",
         "star2": f"%{star2}%",
         "star3": f"%{star3}%",
@@ -75,5 +75,29 @@ def render_sets():
         "sort_dir" : sort_dir,
         "limit" : limit
 }
-    
-    return render_template("Home.html", params=request.args)
+
+    def get_sort_dir(col):
+        if col== sort_by:
+            return "desc" if sort_dir == "asc" else "asc"
+        else:
+            return "asc"
+        
+    with conn.cursor() as cur:
+        cur.execute(f"""select series_title, released_year, runtime, genre, imdb_rating, director, poster_link, certificate, overview, meta_score, star1, star2, star3, star4, no_of_votes, gross 
+                        {from_where_clause} 
+                        order by {sort_by} {sort_dir} 
+                        limit %(limit)s 
+                    """,
+                    params)
+        results = list(cur.fetchall())  
+
+        cur.execute(f"select count(*) as count {from_where_clause}", params)
+        count = cur.fetchone()["count"]
+
+    return render_template("Home.html",
+                           movie=results, 
+                           params=request.args, 
+                           get_sort_dir=get_sort_dir,
+                           result_count =count,
+                           )
+ 
