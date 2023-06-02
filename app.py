@@ -52,13 +52,14 @@ def render_sets():
     params = {
         "poster_link": f"%{poster_link}%",
         "series_title": f"%{series_title}%",
-        "released_year": int(released_year) if released_year else None,
-        #"year": int(year) if year and year.isdigit() else 0 
-        # if year and not year.isdigit() else None,
+        "released_year": int(released_year) if released_year and released_year.isdigit() else 0
+        if released_year and not released_year.isdigit() else None,
         "certificate": f"%{certificate}%",
-        "runtime": f"%{runtime}%",
+        "runtime": int(runtime) if runtime and runtime.isdigit() else 0
+        if runtime and not runtime.isdigit() else None,
         "genre": f"%{genre}%",
-        "imdb_rating": float(imdb_rating) if imdb_rating else None,
+        "imdb_rating": float(imdb_rating) if imdb_rating and imdb_rating.replace('.', '').isdigit() else 0
+        if imdb_rating and not imdb_rating.isdigit() else None,
         "overview": f"%{overview}%",
         "meta_score": f"%{meta_score}%",
         "Director": f"%{director}%",
@@ -66,27 +67,13 @@ def render_sets():
         "star2": f"%{star2}%",
         "star3": f"%{star3}%",
         "star4": f"%{star4}%",
-        "no_of_votes": f"%{no_of_votes}%",
+        "no_of_votes": int(no_of_votes) if no_of_votes and no_of_votes.isdigit() else 0
+        if no_of_votes and not no_of_votes.isdigit() else None,
         "gross": f"%{gross}%",
 
         "sort_by": sort_by,
         "sort_dir" : sort_dir,
         "limit" : limit
-
-
-        #  params = {
-        # "name": f"%{name}%",
-        # "year": int(year) if year and year.isdigit() else 0 
-        # if year and not year.isdigit() else None,
-        # "casts": f"%{casts}%",
-        # "genre": f"%{genre}%",
-        # "rating": float(rating) if rating and rating.replace('.', '').isdigit() else 0
-        # if rating and not rating.isdigit() else None,
-        # "episode": int(episode) if episode and episode.isdigit() else 0
-        # if episode and not episode.isdigit() else None,
-        # "duration": int(duration) if duration and duration.isdigit() else 0
-        # if duration and not duration.isdigit() else None,
-        # "network": f"%{network}%",
-    }
+}
     
     return render_template("Home.html", params=request.args)
