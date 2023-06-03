@@ -16,7 +16,7 @@ def hello_world():
     return "Hello, World!"
 
 
-@app.route("/home")
+@app.route("/directory")
 def render_sets():
     poster_link = request.args.get("poster_link", "")
     series_title = request.args.get("series_title", "")
@@ -94,7 +94,7 @@ def render_sets():
         cur.execute(f"select count(*) as count {from_where_clause}", params)
         count = cur.fetchone()["count"]
 
-    return render_template("Home.html",
+    return render_template("Directory.html",
                            movie=results, 
                            params=request.args, 
                            get_sort_dir=get_sort_dir,
