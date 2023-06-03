@@ -37,7 +37,7 @@ def render_sets():
 
     sort_by = request.args.get("sort_by", "series_title")
     sort_dir = request.args.get("sort_dir", "asc")
-    limit = request.args.get("limit", 10, type=int)
+    limit = request.args.get("limit", 1000, type=int)
 
     from_where_clause = """
         from movie
