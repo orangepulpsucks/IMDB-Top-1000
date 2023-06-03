@@ -1,0 +1,206 @@
+<!-- FIX: 
+    1.I want to make it so that shortened movie name shows, but when clicked
+shows full movie name. 
+    2.Make the IMDB TOP 1000 clickable to home page-->
+
+<div style="text-align: center;">
+
+    <title>IMDB Top 100</title>
+
+    <style>
+
+        h1 {
+            /* IMDB header */
+            margin-top: 50px;
+            margin-bottom: -50px;
+            font-size: 68px; 
+            font-family: arial;
+        }
+        
+        h2 {
+            /* Top 1000 header */
+            margin-bottom: -30px;
+            font-size: 38px;
+            font-family: arial;
+        }
+
+        h3 {
+            /* Results */
+            margin-top: 50px;
+            margin-bottom: 2px;
+            font-size: 30px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color:rgb(26, 86, 190);
+        }
+     
+        th {
+            /* Arrow colors */
+            color:rgb(89, 88, 90);
+        }
+
+        td {
+            /* Table results */
+            font-size: 18px;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-family: arial;
+        }
+
+        a {
+            /* Table Headers */
+            color:rgb(89, 88, 90);
+            text-decoration: none;
+            margin: 10px;
+            font-size: 19px;
+            font-family: arial;
+        }
+        
+        form {
+            /*Search Box headers */
+            font-size: 19px;
+            font-family: arial;
+        }
+
+        button {
+            /* Search Button */
+            font-size: 15px;
+            margin-top: 40px;
+            margin-bottom: -40px;
+            font-family: arial;
+        }
+
+      
+    </style>
+
+    <h1>IMDB</h1>
+    <h2>TOP 1000</h2>
+    
+    <form action="directory" method="get">
+        <style>
+            input[type="text"] {
+                font-size: 15px; 
+            }
+        </style>
+
+        <span>Movie Name:</span>
+        <input type="text" name="series_title" value="{{ params['series_title'] }}" size="15">
+        <span>Year:</span>
+        <input type="text" name="released_year" value="{{ params['released_year'] }}" size="15">
+        <span>Runtime:</span>
+        <input type="text" name="runtime" value="{{ params['runtime'] }}" size="15">
+        <span>Genre:</span>
+        <input type="text" name="genre" value="{{ params['genre'] }}" size="15">
+        <!-- <span>IMDB_Rating:</span>
+        <input type="text" name="imdb_rating" value="{{ params['imdb_rating'] }}"> -->
+        <span>Director:</span>
+        <input type="text" name="director" value="{{ params['director'] }}" size="15">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if result_count > 0 %}
+    <h3>{{ result_count }} FILMS</h3>
+    {% endif %}
+
+    {% if movie %}
+        <table style="border:2px solid rgba(105, 103, 103, 0.599);margin-left:auto;margin-right:auto;">
+            <tr>
+                <!-- <th>
+                    <a href="/home?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=series_title&sort_dir={{ get_sort_dir('series_title') }}">Series_Title</a>
+                    {% if params['sort_by'] == 'series_title' %}
+                        {% if params['sort_dir'] == 'asc' %}
+                            <span>&#8593;</span>
+                        {% else %}
+                            <span>&#8595;</span>
+                        {% endif %}
+                    {% endif %}
+                </th> -->
+                <th>
+                    <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=released_year&sort_dir={{ get_sort_dir('released_year') }}">Year</a>
+                    {% if params['sort_by'] == 'released_year' %}
+                        {% if params['sort_dir'] == 'asc' %}
+                            <span>&#8593;</span>
+                        {% else %}
+                            <span>&#8595;</span>
+                        {% endif %}
+                    {% endif %}
+                </th>
+                <th>
+                    <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=series_title&sort_dir={{ get_sort_dir('series_title') }}">Movie Name</a>
+                    {% if params['sort_by'] == 'series_title' %}
+                        {% if params['sort_dir'] == 'asc' %}
+                            <span>&#8593;</span>
+                        {% else %}
+                            <span>&#8595;</span>
+                        {% endif %}
+                    {% endif %}
+                </th>
+                <th>
+                    <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=runtime&sort_dir={{ get_sort_dir('runtime') }}">Runtime</a>
+                    {% if params['sort_by'] == 'runtime' %}
+                        {% if params['sort_dir'] == 'asc' %}
+                            <span>&#8593;</span>
+                        {% else %}
+                            <span>&#8595;</span>
+                        {% endif %}
+                    {% endif %}
+                </th>
+                <th>
+                    <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=genre&sort_dir={{ get_sort_dir('genre') }}">Genre</a>
+                    {% if params['sort_by'] == 'genre' %}
+                        {% if params['sort_dir'] == 'asc' %}
+                            <span>&#8593;</span>
+                        {% else %}
+                            <span>&#8595;</span>
+                        {% endif %}
+                    {% endif %}
+                </th>
+                <th>
+                    <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=imdb_rating&sort_dir={{ get_sort_dir('imdb_rating') }}">Rating</a>
+                    {% if params['sort_by'] == 'imdb_rating' %}
+                        {% if params['sort_dir'] == 'asc' %}
+                            <span>&#8593;</span>
+                        {% else %}
+                            <span>&#8595;</span>
+                        {% endif %}
+                    {% endif %}
+                </th>
+                <th>
+                    <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=director&sort_dir={{ get_sort_dir('director') }}">Director</a>
+                    {% if params['sort_by'] == 'director' %}
+                        {% if params['sort_dir'] == 'asc' %}
+                            <span>&#8593;</span>
+                        {% else %}
+                            <span>&#8595;</span>
+                        {% endif %}
+                    {% endif %}
+                </th>
+            </tr>
+            {% for movie in movie %}
+            
+                <tr>
+                    <style>
+                        .truncate {
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            max-width: 199px; /* Adjust the width as needed */
+                            /* cursor:pointer; */
+                        }
+                    </style>
+
+                    <td>{{ movie.released_year }}</td>
+                    <td>
+                        <div class="truncate" onclick="toggleMovieName(this)">{{ movie.series_title }}</div>
+                    </td>
+                    <td>{{ movie.runtime }}</td>
+                    <td>{{ movie.genre }}</td>
+                    <td>{{ movie.imdb_rating }}</td>
+                    <td>{{ movie.director }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+  
+    {% endif %}
+
