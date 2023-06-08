@@ -1,45 +1,83 @@
 <!-- Test Page for detailed movie page.
 director, year, show poster, imdb rating, star 1 , star 2, star, 3, star 4, Gross -->
 
-<div style="text-align: center;">
+<!DOCTYPE html>
+<html>
+<head>
     <style>
-         h1 {
+        h1 {
             /* title */
             margin-top: 50px;
             margin-bottom: -20px;
-            font-size: 60px;
+            font-size: 70px;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color:rgb(26, 86, 190);
+            color: rgb(26, 86, 190);
         }
+
         h2 {
             /* director*/
-            margin-bottom: -55px;
-            font-size:20px;
+            margin-bottom: -60px;
+            font-size: 20px;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color:rgb(26, 86, 190);
-            text-transform: lowercase;
+            color: rgb(26, 86, 190);
+            text-transform: uppercase;
         }
+
         h3 {
             /* year */
             font-size: 55px;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color:rgb(26, 86, 190);
+            color: rgb(26, 86, 190);
             text-transform: lowercase;
         }
-        .image-column img {
-            /* poster */
-            width: auto;
-            height: auto;
-        }
-    </style>
-    <title>Old Boy</title>
-    <h1>OLD BOY</h1>
-    <h2>director: {{ result_old_boy_director }}</h2>
-    <h3>{{ result_old_boy_year }}</h3>
-    <div class="image-column">
-        <img src="{{ result_old_boy_poster }}" alt="Poster">
-    </div>
 
-    
-</div>
+        .image-column {
+            /* poster */
+            margin-top: -40px;
+            float: middle;
+        }
+
+        .stars-column {
+            /* stars */
+            float: right;
+            margin-right: 420px;
+            text-align: left;
+            margin-top: -450px;
+        }
+
+        .overview-column {
+            /* overview */
+            float: left;
+            margin-left:295px; 
+            text-align: right;
+            margin-top: -450px;
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>OLD BOY</h1>
+        <h2>director: {{ result_old_boy_director }}</h2>
+        <h3>{{ result_old_boy_year }}</h3>
+        <div class="image-column">
+            <img src="{{ result_old_boy_poster }}" alt="Poster">
+        </div>
+        <div class="stars-column">
+            <h2>starring: <br>
+                {{ result_old_boy_star1 }} <br>
+                {{ result_old_boy_star2 }} <br> 
+                {{ result_old_boy_star3 }} <br>
+                {{ result_old_boy_star4 }}
+            </h2>
+        </div>
+        <div class="overview-column">
+            <h2>synopsis: <br>
+                {{ result_old_boy_overview }}</h2>
+        </div>
+    </div>
+</body>
+</html>
+
 

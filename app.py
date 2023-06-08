@@ -190,10 +190,33 @@ def render_sets2():
         cur.execute(f"select poster_link as old_boy_poster from movie where series_title ilike '%old boy%'")
         old_boy_poster = cur.fetchone()["old_boy_poster"]
 
+        # Starring
+        cur.execute(f"select star1 as old_boy_star1 from movie where series_title ilike '%old boy%'")
+        old_boy_star1 = cur.fetchone()["old_boy_star1"]
+
+        cur.execute(f"select star2 as old_boy_star2 from movie where series_title ilike '%old boy%'")
+        old_boy_star2 = cur.fetchone()["old_boy_star2"]
+
+        cur.execute(f"select star3 as old_boy_star3 from movie where series_title ilike '%old boy%'")
+        old_boy_star3 = cur.fetchone()["old_boy_star3"]
+
+        cur.execute(f"select star4 as old_boy_star4 from movie where series_title ilike '%old boy%'")
+        old_boy_star4 = cur.fetchone()["old_boy_star4"]
+
+        # Overview
+        cur.execute(f"select overview as old_boy_overview from movie where series_title ilike '%old boy%'")
+        old_boy_overview = cur.fetchone()["old_boy_overview"]
+
+
         return render_template("old-boy.html",
                            movie=results2,
                            result_old_boy_director=old_boy_director,
                            result_old_boy_year=old_boy_year,
-                           result_old_boy_poster=old_boy_poster
+                           result_old_boy_poster=old_boy_poster,
+                           result_old_boy_star1=old_boy_star1,
+                           result_old_boy_star2=old_boy_star2,
+                           result_old_boy_star3=old_boy_star3,
+                           result_old_boy_star4=old_boy_star4,
+                           result_old_boy_overview=old_boy_overview
                            )
  
