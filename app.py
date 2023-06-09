@@ -290,7 +290,7 @@ def render_sets3():
         results3 = list(cur.fetchall())  
 
 
-    return render_template("homeß.html",
+    return render_template("home.html",
                            movie=results3, 
                            params3=request.args
                            )
