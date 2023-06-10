@@ -85,7 +85,7 @@
     body {
       font-family: 'Open Sans', sans-serif;
       background: #ffffff;
-      color: white;
+      color: rgb(255, 255, 255);
       text-align: center;
       margin: 0;
       padding-top: 200px; /* Add padding-top to make content below headers visible */
@@ -188,13 +188,32 @@
     #main li:nth-child(4):hover ul div {
       --i: 4;
     }
+
+    /* For Movie of the Day */
+    div#motd {
+      /* background-color: #ff0000; Wrap color option */
+      /* font-family: 'Open Sans', sans-serif; */
+      background: #ffffff;
+      color: rgb(0, 0, 0);
+      text-align: left;
+      margin: 444px;
+      padding-top: 132px;
+      margin-top: -145px;
+      margin-bottom: -30px;
+      font-size: 11px; 
+      font-family: arial;
+      text-transform: uppercase;
+    }
+
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <h1>IMDB</h1>
   <h2>TOP 1000</h2>
 
+  <!-- Menu Tabs -->
   <nav>
     <ul id="main">
       <li>Browse by Directors</li>
@@ -211,5 +230,9 @@
       <li>About</li>
     </ul>
   </nav>
+
 </body>
+
+<!-- Movie of the Day -->
+<div id="motd">movie of the day: </div>
 </html>
