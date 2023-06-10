@@ -70,18 +70,19 @@
         .stars-column {
             /* random stars */
             float: right;
-            margin-right: 420px;
+            margin-right: 130px;
             text-align: left;
-            margin-top: -450px;
+            margin-top: -550px;
+            width: 500px; /* idky but this "fixes" the position */
         }
 
         .overview-column {
             /* random synopsis/overview */
             float: left;
-            margin-left:295px; 
+            margin-left: 380px; 
             text-align: right;
-            margin-top: -450px;
-            width: 300px; /* THIS is what allowed me to print overview on 
+            margin-top: -550px;
+            width: 250px; /* THIS is what allowed me to print overview on 
                              multiple lines*/
         }
 
@@ -341,7 +342,7 @@
 
   <br>
   <br>
-  <!-- <div class="stars-column">
+  <div class="stars-column">
       <h5>starring: <br>
         {{ result_random_series['star1'] }} <br>
         {{ result_random_series['star2'] }} <br> 
@@ -352,7 +353,7 @@
   <div class="overview-column">
       <h5>synopsis: <br>
         {{ result_random_series['overview'] }}</h5>
-  </div> -->
+  </div>
 </div>
 
 
