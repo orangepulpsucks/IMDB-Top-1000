@@ -4,6 +4,14 @@
 <html>
 <head>
   <title>[HOME]</title>
+
+  <!-- Functionality -->
+  <script>
+    function reloadPage() {
+      location.reload();
+    }
+  </script>
+
   <style>
     h1 {
       /* IMDB header */
@@ -79,7 +87,7 @@
         .overview-column {
             /* random synopsis/overview */
             float: left;
-            margin-left: 380px; 
+            margin-left: 376px; 
             text-align: right;
             margin-top: -550px;
             width: 250px; /* THIS is what allowed me to print overview on 
@@ -293,11 +301,12 @@
         </ul>
       </li>
       <li>Directory</li>
-      <li>Random Film</li>
+      <li onclick="reloadPage()">Random Film</li>
       <li>About</li>
     </ul>
   </nav>
 </body>
+
 
 <!-- Movie of the Day -->
 <!-- 
