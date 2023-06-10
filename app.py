@@ -288,10 +288,13 @@ def render_sets3():
                     """,
                     params3)
         results3 = list(cur.fetchall())  
+       
+        # Select a random movie name from the results
+        random_series = random.choice(results3)
 
 
     return render_template("home.html",
-                           movie=results3, 
+                           result_random_series=random_series, 
                            params3=request.args
                            )
  

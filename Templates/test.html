@@ -7,7 +7,7 @@
   <style>
     h1 {
       /* IMDB header */
-      margin-top: -160px;
+      margin-top: -145px;
       margin-bottom: -30px;
       font-size: 100px; 
       font-family: arial;
@@ -34,56 +34,6 @@
       background: white;
       z-index: 9999;
     }
-
-    h4 {
-            /* random series_title */
-            margin-top: -10px;
-            margin-bottom: -35px;
-            font-size: 43px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: rgb(26, 86, 190);
-        }
-
-        h5 {
-            /* random director*/
-            margin-bottom: -43px;
-            font-size: 20px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: rgb(26, 86, 190);
-            text-transform: uppercase;
-        }
-
-        h3 {
-            /* random year */
-            font-size: 39px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: rgb(26, 86, 190);
-            text-transform: lowercase;
-        }
-
-        .image-column {
-            /* random poster */
-            margin-top: -30px;
-            float: middle;
-        }
-
-        .stars-column {
-            /* random stars */
-            float: right;
-            margin-right: 420px;
-            text-align: left;
-            margin-top: -450px;
-        }
-
-        .overview-column {
-            /* random synopsis/overview */
-            float: left;
-            margin-left:295px; 
-            text-align: right;
-            margin-top: -450px;
-            width: 300px; /* THIS is what allowed me to print overview on 
-                             multiple lines*/
-        }
 
     /* Variables */
     :root {
@@ -138,7 +88,7 @@
       color: rgb(255, 255, 255);
       text-align: center;
       margin: 0;
-      padding-top: 160px; /* Add padding-top to make content below headers visible */
+      padding-top: 200px; /* Add padding-top to make content below headers visible */
     }
   
     /* Placement of the dropdown menu */
@@ -147,7 +97,6 @@
       justify-content: center;
       align-items: center;
       height: 9vh;
-      padding-bottom: -100px;
     }
   
     #main {
@@ -157,7 +106,7 @@
       font-size: 0;
       text-transform: uppercase;
       display: flex;
-      padding: 0px;
+      padding: 0;
       margin: 50px auto;
       position: relative;
     }
@@ -192,7 +141,7 @@
       padding: 0;
       width: 100%;
       left: 0;
-      top: 44px;
+      top: 48px;
       display: none; /* Hide the dropdown by default */
     }
   
@@ -241,22 +190,7 @@
     }
 
     /* For Movie of the Day */
-    /* div#motd { */
-      /* background-color: #ff0000; Wrap color option */
-      /* font-family: 'Open Sans', sans-serif; */
-      /* background: #ffffff;
-      color: rgb(0, 0, 0);
-      text-align: left;
-      margin: 444px;
-      padding-top: 132px;
-      margin-top: -145px;
-      margin-bottom: -30px;
-      font-size: 11px; 
-      font-family: arial;
-      text-transform: uppercase;
-    } */
-
-    div#test {
+    div#motd {
       /* background-color: #ff0000; Wrap color option */
       /* font-family: 'Open Sans', sans-serif; */
       background: #ffffff;
@@ -266,7 +200,7 @@
       padding-top: 132px;
       margin-top: -145px;
       margin-bottom: -30px;
-      font-size: 15px; 
+      font-size: 11px; 
       font-family: arial;
       text-transform: uppercase;
     }
@@ -296,67 +230,9 @@
       <li>About</li>
     </ul>
   </nav>
+
 </body>
 
 <!-- Movie of the Day -->
-<!-- 
-<div id="motd">movie of the day: </div>  -->
-
-<!-- Test to see if individual results are for the same movie and function well.
-     USE AS TEMPLATE
-<br>
-<br>
-<br>
-<br>
-
-<div id="test">Name: {{ result_random_series['series_title'] }}</div>
-<br>
-<br>
-<div id="test">Year: {{ result_random_series['released_year'] }}</div>
-<br>
-<br>
-<div id="test">Genre: {{ result_random_series['genre'] }}</div>
-<br>
-<br>
-<div id="test">Director: {{ result_random_series['director'] }}</div>
-<br>
-<br>
-<div id="test">Star1: {{ result_random_series['star1'] }}</div>
-<br>
-<br>
-<div id="test">Star2: {{ result_random_series['star2'] }}</div>
-<br>
-<br>
-<div id="test">Star3: {{ result_random_series['star3'] }}</div>
-<br>
-<br>
-<div id="test">Star4: {{ result_random_series['star4'] }}</div> -->
-<div style="text-align: center;">
-  <h4>{{ result_random_series['series_title'] }}</h4>
-  <h5>director: {{ result_random_series['director'] }}</h5>
-  <h3>{{ result_random_series['released_year'] }}</h3>
-  <div class="image-column">
-      <img src="{{ result_random_series['poster_link'] }}" alt="Poster" style="width: 400px; height: 600px;">
-  </div>
-
-  <br>
-  <br>
-  <!-- <div class="stars-column">
-      <h5>starring: <br>
-        {{ result_random_series['star1'] }} <br>
-        {{ result_random_series['star2'] }} <br> 
-        {{ result_random_series['star3'] }} <br>
-        {{ result_random_series['star4'] }}
-      </h5>
-  </div>
-  <div class="overview-column">
-      <h5>synopsis: <br>
-        {{ result_random_series['overview'] }}</h5>
-  </div> -->
-</div>
-
-
-
-
-
+<div id="motd">movie of the day: </div>
 </html>
