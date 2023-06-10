@@ -1,5 +1,6 @@
 # Movie Database (Database Practice)
-Practice working with CSS, Docker, Github, HTML, JavaScript, pgAdmin, Python, and SQL. 
+My main goal is to complete a fully functioning movie database.
+Also, to practice working with CSS, Docker, Github, HTML, JavaScript, pgAdmin, Python, and SQL. 
 <br>Dataset Used: https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows 
 <br>
 <br> Currently:
