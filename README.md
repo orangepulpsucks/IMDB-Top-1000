@@ -4,7 +4,6 @@ Practice working with CSS, Docker, Github, HTML, JavaScript, pgAdmin, Python, an
 <br>
 <br> Currently:
 <br>
-<br>
 Home Page:
 <img width="1675" alt="Screenshot 2023-06-09 at 9 39 41 PM" src="https://github.com/orangepulpsucks/MovieDatabasePrac/assets/42681894/a5f359ac-3982-4c19-8ad9-402ae0e10d72">
 <br>
