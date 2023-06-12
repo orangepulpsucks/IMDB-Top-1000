@@ -20,8 +20,8 @@ def render_sets4():
     return render_template("about.html")
 
 @app.route("/browse-by-director")
-def render_sets12():
-    return render_template("browse-by-director.html")
+def render_sets13():
+    return render_template("director.html")
 
 @app.route("/browse-by-category")
 def render_sets6():
