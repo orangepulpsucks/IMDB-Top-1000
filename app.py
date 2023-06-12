@@ -13,19 +13,19 @@ app = Flask(__name__)
 # @app.route("/about")
 #  def render_sets4():
 #     return render_template("about.html")
-# Note: "render_sets#" are buggy so just choose one that isn't buggy
+# Notes: "render_sets#" are buggy so just choose one that isn't buggy
 
 @app.route("/about")
 def render_sets4():
     return render_template("about.html")
 
-@app.route("/browse-by-directors")
-def render_sets11():
-    return render_template("browse-by-dir.html")
+@app.route("/browse-by-director")
+def render_sets12():
+    return render_template("browse-by-director.html")
 
 @app.route("/browse-by-category")
 def render_sets6():
-    return render_template("browse-by-cat.html")
+    return render_template("browse-by-category.html")
 
 @app.route("/category-by-year")
 def render_sets9():
