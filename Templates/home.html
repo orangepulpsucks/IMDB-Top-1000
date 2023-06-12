@@ -305,24 +305,25 @@
 <body>
 
   <!-- Header -->
-  <h1>IMDB</h1>
-  <h2>TOP 1000</h2>
+  <a href="http://127.0.0.1:5000" style="text-decoration: none;"><h1>IMDB</h1></a>
+  <a href="http://127.0.0.1:5000" style="text-decoration: none;"><h2>TOP 1000</h2></a>
 
   <!-- Menu Tabs -->
   <nav>
     <ul id="main">
-      <li>Browse by Directors</li>
+      <li onclick="window.location.href='http://127.0.0.1:5000/browse-by-directors'">Browse by Directors</li>
       <li>Browse by Category
         <ul class="drop">
           <div>
-            <li>by Year</li>
-            <li>by Genre</li>
+            <li onclick="window.location.href='http://127.0.0.1:5000/category-by-year'">by Year</li>
+            <li onclick="window.location.href='http://127.0.0.1:5000/category-by-genre'">by Genre</li>
           </div>
         </ul>
       </li>
-      <li>Directory</li>
+      <li onclick="window.location.href='http://127.0.0.1:5000/directory'">Directory</li>
       <li onclick="reloadPage()">Random Film</li>
-      <li>About</li>
+      <li onclick="window.location.href='http://127.0.0.1:5000/about'">About</li>
+
     </ul>
   </nav>
 </body>
