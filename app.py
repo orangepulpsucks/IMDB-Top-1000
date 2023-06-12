@@ -9,6 +9,23 @@ conn = psycopg2.connect(
     cursor_factory=RealDictCursor)
 app = Flask(__name__)
 
+# TEMPLATE
+# @app.route("/about")
+#  def render_sets4():
+#     return render_template("about.html")
+@app.route("/about")
+def render_sets4():
+    return render_template("about.html")
+
+@app.route("/browse-by-directors")
+def render_sets5():
+    return render_template("browse-by-dir.html")
+
+@app.route("/browse-by-category")
+def render_sets6():
+    return render_template("browse-by-cat.html")
+
+
 
 @app.route("/directory")
 def render_sets():
