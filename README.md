@@ -10,4 +10,4 @@ Home Page:
 <br>
 <br>
 Directory Page:
-<img width="1230" alt="June3" src="https://github.com/orangepulpsucks/MovieDatabasePrac/assets/42681894/f113a78f-a1a6-4116-b764-fa725d77e1cf">
+<img width="1679" alt="Screenshot 2023-06-12 at 7 31 07 PM" src="https://github.com/orangepulpsucks/MovieDatabasePrac/assets/42681894/e74a0e83-2daf-4be1-82c5-35c20440938a">
