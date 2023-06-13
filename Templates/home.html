@@ -5,13 +5,6 @@
 <head>
   <title>[HOME]</title>
 
-  <!-- Functionality -->
-  <script>
-    function reloadPage() {
-      location.reload();
-    }
-  </script>
-
   <style>
     h1 {
       /* IMDB header */
@@ -45,11 +38,12 @@
 
     h4 {
         /* random series_title */
-        margin-top: 1px;
+        margin-top: -15px;
         margin-bottom: -35px;
-        font-size: 44px;
+        font-size: 50px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         color: rgb(26, 86, 190);
+        font-weight: -120;
         }
 
     h5 {
@@ -63,8 +57,9 @@
 
     h3 {
         /* random year */
-        font-size: 39px;
+        font-size: 38px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin-bottom: 33px;
         color: rgb(26, 86, 190);
         text-transform: lowercase;
     }
@@ -72,9 +67,10 @@
     h6 {
       /* imdb rating number */
         margin-top: 10px;
-        font-size: 90px;
+        font-size: 80px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         color: rgb(26, 86, 190);
+        font-weight: -120;
     }
 
     .image-column {
@@ -299,6 +295,7 @@
 
   </style>
 </head>
+
 <body>
 
   <!-- Header -->
@@ -361,33 +358,34 @@
 <br>
 <div id="test">Star4: {{ result_random_series['star4'] }}</div> -->
 <div style="text-align: center;">
-  <h4>{{ result_random_series['series_title'] }}</h4>
-  <h5>director: {{ result_random_series['director'] }}</h5>
-  <h3>{{ result_random_series['released_year'] }}</h3>
+  <!-- <h4>{{ result_random_series['series_title'] }}</h4> -->
+  <h4>{{ result_motd_title }}</h4>
+  <h5>director: {{ result_motd_director }}</h5>
+  <h3>{{ result_motd_year }}</h3>
   <div class="image-column">
-      <img src="{{ result_random_series['poster_link'] }}" alt="Poster" style="width: 400px; height: 600px;">
+      <img src="{{ result_motd_poster }}" alt="Poster" style="width: 400px; height: 600px;">
   </div>
 
   <div class="ratings-column">
     <h5>imdb rating:</h5> <br>
-    <h6>{{ result_random_series['imdb_rating'] }}</h6>
+    <h6>{{ result_motd_rating }}</h6>
   </div>
   
   <div class="stars-column">
       <h5>starring: <br>
-        {{ result_random_series['star1'] }} <br>
-        {{ result_random_series['star2'] }} <br> 
-        {{ result_random_series['star3'] }} <br>
-        {{ result_random_series['star4'] }}
+        {{ result_motd_star1 }} <br>
+        {{ result_motd_star2 }} <br> 
+        {{ result_motd_star3 }} <br>
+        {{ result_motd_star4 }}
       </h5>
   </div>
   <div class="overview-column">
       <h5>synopsis: <br>
-        {{ result_random_series['overview'] }}</h5>
+        {{ result_motd_overview }}</h5>
   </div>
 </div>
 
-
+<br>
 
 
 
