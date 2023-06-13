@@ -74,9 +74,9 @@
 
     h6.custom-heading {
       /* results */
-        margin-top: 10px;
+        margin-top: 15px;
         margin-bottom: 0px;
-        font-size: 40px;
+        font-size: 30px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         color: rgb(26, 86, 190);
     }
@@ -316,9 +316,9 @@
     }
 
     table.boostrap4_table_head_dark_hoverable thead th {
-        /* resize: horizontal; Allow resizing */
-        /* overflow: auto; Add scrollbars when necessary */
-        min-width: 50px;  
+        /* resize: horizontal; 
+        overflow: auto; */
+        min-width: 100px;  
         /* max-width: fit-content; */
         font-size: 17px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -379,21 +379,24 @@
   <!-- Menu Tabs -->
   <nav>
     <ul id="main">
-      <li onclick="window.location.href='http://127.0.0.1:5000/browse-by-director'">Browse by Director</li>
-      <li>Browse by Category
+      <li onclick="window.location.href='http://127.0.0.1:5000/'">Movie of the Day</li>
+      <!-- For DROPDOWN MENU 
+        <li>Browse by Category
         <ul class="drop">
           <div>
             <li onclick="window.location.href='http://127.0.0.1:5000/category-by-year'">by Year</li>
             <li onclick="window.location.href='http://127.0.0.1:5000/category-by-genre'">by Genre</li>
           </div>
         </ul>
-      </li>
+      </li> -->
+      <li onclick="window.location.href='http://127.0.0.1:5000/random-film'">Random Film</li>
       <li onclick="window.location.href='http://127.0.0.1:5000/directory'">Directory</li>
-      <li onclick="window.location.href='http://127.0.0.1:5000'">Random Film</li>
       <li onclick="window.location.href='http://127.0.0.1:5000/about'">About</li>
 
     </ul>
   </nav>
+</body>
+
 <form action="directory" method="get">
   <!-- Directory Search -->
   <input type="text" name="series_title" placeholder="Search Movie" value="{{ params['series_title'] }}" size="14">
@@ -469,14 +472,7 @@
           </th>
 
           <th>
-            <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=genre&sort_dir={{ get_sort_dir('genre') }}" style="text-decoration: none; color: inherit;">Genre</a>
-              {% if params['sort_by'] == 'genre' %}
-                  {% if params['sort_dir'] == 'asc' %}
-                      <span>&#8593;</span>
-                  {% else %}
-                      <span>&#8595;</span>
-                  {% endif %}
-              {% endif %}
+            Genre
           </th>
 
           <th>
@@ -489,16 +485,7 @@
                   {% endif %}
               {% endif %}
           </th>
-          <th>
-            <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=imdb_rating&sort_dir={{ get_sort_dir('no_of_votes') }}" style="text-decoration: none; color: inherit;">Votes</a>
-            {% if params['sort_by'] == 'no_of_votes' %}
-                {% if params['sort_dir'] == 'asc' %}
-                    <span>&#8593;</span>
-                {% else %}
-                    <span>&#8595;</span>
-                {% endif %}
-            {% endif %}
-        </th>
+          
       </thead>
 
       <tbody>
@@ -510,7 +497,6 @@
             <td>{{ movie.runtime }}</td>
             <td>{{ movie.genre }}</td>
             <td>{{ movie.imdb_rating}}</td>
-            <td>{{ movie.no_of_votes }}</td>
           </tr>
       </tbody>
       {% endfor %}

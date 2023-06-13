@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>[YEAR]</title>
+  <title>[RANDOM FILM]</title>
 
   <!-- Functionality -->
 
@@ -304,19 +304,54 @@
   <!-- Menu Tabs -->
   <nav>
     <ul id="main">
-      <li onclick="window.location.href='http://127.0.0.1:5000/browse-by-director'">Browse by Director</li>
-      <li>Browse by Category
+      <li onclick="window.location.href='http://127.0.0.1:5000/'">Movie of the Day</li>
+      <!-- For DROPDOWN MENU 
+        <li>Browse by Category
         <ul class="drop">
           <div>
             <li onclick="window.location.href='http://127.0.0.1:5000/category-by-year'">by Year</li>
             <li onclick="window.location.href='http://127.0.0.1:5000/category-by-genre'">by Genre</li>
           </div>
         </ul>
-      </li>
+      </li> -->
+      <li onclick="window.location.href='http://127.0.0.1:5000/random-film'">Random Film</li>
       <li onclick="window.location.href='http://127.0.0.1:5000/directory'">Directory</li>
-      <li onclick="window.location.href='http://127.0.0.1:5000'">Random Film</li>
       <li onclick="window.location.href='http://127.0.0.1:5000/about'">About</li>
 
     </ul>
   </nav>
 </body>
+
+<div style="text-align: center;">
+    <h4>{{ result_random_series['series_title'] }}</h4>
+    <h5>director: {{ result_random_series['director'] }}</h5>
+    <h3>{{ result_random_series['released_year'] }}</h3>
+    <div class="image-column">
+        <img src="{{ result_random_series['poster_link'] }}" alt="Poster" style="width: 400px; height: 600px;">
+    </div>
+  
+    <div class="ratings-column">
+      <h5>imdb rating:</h5> <br>
+      <h6>{{ result_random_series['imdb_rating'] }}</h6>
+    </div>
+    
+    <div class="stars-column">
+        <h5>starring: <br>
+          {{ result_random_series['star1'] }} <br>
+          {{ result_random_series['star2'] }} <br> 
+          {{ result_random_series['star3'] }} <br>
+          {{ result_random_series['star4'] }}
+        </h5>
+    </div>
+    <div class="overview-column">
+        <h5>synopsis: <br>
+          {{ result_random_series['overview'] }}</h5>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  </html>
+  
