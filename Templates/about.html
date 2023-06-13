@@ -8,7 +8,7 @@
   <style>
     h1 {
       /* IMDB header */
-      margin-top: -138px;
+      margin-top: -100px;
       margin-bottom: -22px;
       font-size: 80px; 
       font-family: arial;
@@ -68,9 +68,18 @@
         margin-bottom: -35px;
         font-size: 95px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: rgb(26, 86, 190);
+        color: rgb(26, 86, 190); 
+    }
 
-      
+    h1.custom-about-body {
+        font-size: 16px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: rgb(0, 0, 0);
+        margin-top: 200px;
+        width: 32%;
+        font-weight: 30;
+        text-align: justify;
+
     }
 
     .image-column {
@@ -293,6 +302,13 @@
       text-transform: uppercase;
     }
 
+    .about-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 22vh; /* Adjust the height as needed */
+    }
+
   </style>
 </head>
 <body>
@@ -320,4 +336,25 @@
 
     </ul>
   </nav>
+  <!-- About Section Start -->
+<div class="about-container">
+      <h1 class="custom-about-body">
+          <strong>About IMDB Top 1000:</strong><br><br>
+          I have developed a fully functional movie database inspired by my databases course. 
+          Motivated by my deep appreciation for films, I sought to create a straightforward 
+          yet engaging website to satisfy my passion for movies.<br><br>
+          The database comprises 1000 
+          carefully selected films sourced from <a href="https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows" style="text-decoration: none; color: rgb(26, 86, 190);">Kaggle</a>, 
+          with plans to expand it gradually as I encounter noteworthy movies.<br><br>
+          IMDB Top 1000 
+          aims to serve as a professional platform dedicated to sharing my profound love for films. 
+          By providing a comprehensive collection of movies, I aspire to offer a valuable resource 
+          for fellow movie enthusiasts to explore and enjoy.<br>
+          Thanks for visiting!<br><br>
+          With love,<br> 
+          orangepulpsucks.
+      </h1>
+</div>  
+
+
 </body>
