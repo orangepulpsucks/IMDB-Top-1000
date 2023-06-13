@@ -6,6 +6,7 @@
   <!-- Functionality -->
 
   <style>
+
     h1 {
       /* IMDB header */
       margin-top: -160px;
@@ -69,9 +70,17 @@
         font-size: 95px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         color: rgb(26, 86, 190);
-
-      
     }
+
+    h6.custom-heading {
+      /* imdb rating number */
+        margin-top: 30px;
+        margin-bottom: 2px;
+        font-size: 40px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: rgb(26, 86, 190);
+    }
+    
 
     .image-column {
         /* random poster */
@@ -293,8 +302,74 @@
       text-transform: uppercase;
     }
 
+    table.boostrap4_table_head_dark_hoverable {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #ff0000;
+        text-align: left;
+        box-sizing: border-box;
+        border-collapse: collapse;
+        width: 60%; /* change length of the table menu */
+        margin-bottom: 1rem;
+        background-color: transparent;
+    }
+
+    table.boostrap4_table_head_dark_hoverable thead th {
+        /* resize: horizontal; Allow resizing */
+        /* overflow: auto; Add scrollbars when necessary */
+        min-width: 50px;  
+        /* max-width: fit-content; */
+        font-size: 17px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        line-height: 1.5;
+        border-collapse: collapse;
+        box-sizing: border-box;
+        text-align: inherit;
+        padding: 2px;
+        vertical-align: bottom;
+        color: #000000;
+        background-color: #79797961;
+        border-color: #ffffff;    
+    }
+
+    table.boostrap4_table_head_dark_hoverable td {
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #000000;
+        text-align: left;
+        /* border-collapse: collapse; */
+        box-sizing: border-box;
+        padding: 1px;
+        /* vertical-align: top; */
+        border-top: 1px solid #dee2e6;
+    }
+
+    table.boostrap4_table_head_dark_hoverable tbody tr:hover {
+        background-color: rgba(0,0,0,.075);
+    }
+
+    /* ----------- Non table related styles */
+
+    .table_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+       
+    }
+
+    body {
+        font-family: sans-serif;
+    }
+
+
+    
   </style>
 </head>
+
+
+
 <body>
 
   <!-- Header -->
@@ -319,4 +394,133 @@
 
     </ul>
   </nav>
+<form action="directory" method="get">
+  <!-- Directory Search -->
+  <input type="text" name="series_title" placeholder="Search Movie" value="{{ params['series_title'] }}" size="14">
+  <input type="text" name="released_year" placeholder="Search Year" value="{{ params['released_year'] }}" size="14">
+  <input type="text" name="genre" placeholder="Search Genre" value="{{ params['genre'] }}" size="14">
+  <input type="text" name="director" placeholder="Search Director" value="{{ params['director'] }}" size="14">
+  <button type="submit">Search</button>
+</form>
+
+
+  {% if result_count > 0 %}
+  <h6 class="custom-heading">{{ result_count }} FILMS</h6>
+  {% endif %}
+
+  
+  
+  <!-- 
+  name Series_Title text,
+  year Released_Year int not null, --WORKING
+  Runtime int not null, --WORKING
+  Genre text,
+  IMDB_Rating float not null, --WORKING
+  Director text,
+  No_of_Votes int not null, --WORKING-->
+
+  {% if movie %}
+  <div class="table_container">
+    <table class="boostrap4_table_head_dark_hoverable">
+      <thead>
+
+          <th> 
+            <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=released_year&sort_dir={{ get_sort_dir('released_year') }}" style="text-decoration: none; color: inherit;">Year</a>
+                {% if params['sort_by'] == 'released_year' %}
+                    {% if params['sort_dir'] == 'asc' %}
+                        <span>&#8593;</span>
+                    {% else %}
+                        <span>&#8595;</span>
+                    {% endif %}
+                {% endif %}
+          </th>
+
+          <th>                    
+            <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=series_title&sort_dir={{ get_sort_dir('series_title') }}" style="text-decoration: none; color: inherit;">Movie Name</a>
+              {% if params['sort_by'] == 'series_title' %}
+                  {% if params['sort_dir'] == 'asc' %}
+                      <span>&#8593;</span>
+                  {% else %}
+                      <span>&#8595;</span>
+                  {% endif %}
+              {% endif %}
+          </th>
+
+          <th>
+            <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=director&sort_dir={{ get_sort_dir('director') }}" style="text-decoration: none; color: inherit;">Director</a>
+              {% if params['sort_by'] == 'director' %}
+                  {% if params['sort_dir'] == 'asc' %}
+                      <span>&#8593;</span>
+                  {% else %}
+                      <span>&#8595;</span>
+                  {% endif %}
+              {% endif %}
+          </th>
+          
+          <th>
+            <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=runtime&sort_dir={{ get_sort_dir('runtime') }}" style="text-decoration: none; color: inherit;">Runtime</a>
+              {% if params['sort_by'] == 'runtime' %}
+                  {% if params['sort_dir'] == 'asc' %}
+                      <span>&#8593;</span>
+                  {% else %}
+                      <span>&#8595;</span>
+                  {% endif %}
+              {% endif %}
+          </th>
+
+          <th>
+            <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=genre&sort_dir={{ get_sort_dir('genre') }}" style="text-decoration: none; color: inherit;">Genre</a>
+              {% if params['sort_by'] == 'genre' %}
+                  {% if params['sort_dir'] == 'asc' %}
+                      <span>&#8593;</span>
+                  {% else %}
+                      <span>&#8595;</span>
+                  {% endif %}
+              {% endif %}
+          </th>
+
+          <th>
+            <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=imdb_rating&sort_dir={{ get_sort_dir('imdb_rating') }}" style="text-decoration: none; color: inherit;">Rating</a>
+              {% if params['sort_by'] == 'imdb_rating' %}
+                  {% if params['sort_dir'] == 'asc' %}
+                      <span>&#8593;</span>
+                  {% else %}
+                      <span>&#8595;</span>
+                  {% endif %}
+              {% endif %}
+          </th>
+          <th>
+            <a href="/directory?series_title={{ params['series_title'] }}&released_year={{ params['released_year'] }}&runtime={{ params['runtime'] }}&genre={{ params['genre'] }}&imdb_rating={{ params['imdb_rating'] }}&director={{ params['director'] }}&sort_by=imdb_rating&sort_dir={{ get_sort_dir('no_of_votes') }}" style="text-decoration: none; color: inherit;">Votes</a>
+            {% if params['sort_by'] == 'no_of_votes' %}
+                {% if params['sort_dir'] == 'asc' %}
+                    <span>&#8593;</span>
+                {% else %}
+                    <span>&#8595;</span>
+                {% endif %}
+            {% endif %}
+        </th>
+      </thead>
+
+      <tbody>
+        {% for movie in movie %}
+          <tr>
+            <td>{{ movie.released_year }}</td>
+            <td>{{ movie.series_title }}</td>
+            <td>{{ movie.director }}</td>
+            <td>{{ movie.runtime }}</td>
+            <td>{{ movie.genre }}</td>
+            <td>{{ movie.imdb_rating}}</td>
+            <td>{{ movie.no_of_votes }}</td>
+          </tr>
+      </tbody>
+      {% endfor %}
+  </table>
+</div>
+
+{% else %}
+        <div style="text-align: center;">
+        <h6 class="custom-heading">NO FILMS</h6>
+  
+    {% endif %}
+
 </body>
