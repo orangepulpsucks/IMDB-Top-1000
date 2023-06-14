@@ -455,7 +455,7 @@ def render_sets6():
         motd_title = cur.fetchone()["motd_title"]
 
 
-    return render_template("home.html",
+    return render_template("index.html",
                            result_motd_title=motd_title,
                            result_random_series=random_series,
                            result_motd_director=motd_director,
