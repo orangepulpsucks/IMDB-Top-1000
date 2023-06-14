@@ -1,4 +1,4 @@
-# Movie Database (Database Practice)
+# Movie Database
 Completed a fully functioning movie database to practice working with CSS, Docker, Github, HTML, JavaScript, pgAdmin, Python, and SQL. 
 <br>Final goal is to make a completely functioning <a href="http://imdbtop1000.000.pe" style="text-decoration: underline; color: black;">website</a>, which is proving to be quite challenging...
 <br>
