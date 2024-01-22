@@ -5,6 +5,12 @@ Completed a fully functioning movie database to practice working with CSS, Docke
 <br>**Dataset Used:** https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows 
 <br>
 <br>
+### Run Docker
+```
+$ flask run
+```
+<br>
+<br>
 ### Home Page:
 <img width="1678" alt="Screenshot 2023-06-13 at 5 38 47 PM" src="https://github.com/orangepulpsucks/MovieDatabasePrac/assets/42681894/152995ac-0c73-49df-88f1-9f532423c617">
 <br>
